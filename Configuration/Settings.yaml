@@ -1,42 +1,68 @@
-Admin:
-  GoogleAnalytics: UA-27105965-1
-  TwitterMessage: Check it out!
-  Beings:
-    TYPO3\Party\Domain\Model\PersonName:
-      Properties:
-        otherName:
-          Ignore: true
-        middleName:
-          Ignore: true
-        fullName:
-          Ignore: true
-          
-    TYPO3\Party\Domain\Model\ElectronicAddress:
-      Properties:
-        approved:
-          Ignore: true
-        identifier:
-          Label: Address
-        usage:
-          Widget: Dropdown
-          OptionsProvider:
-            name: Array
-            options:
-              home: Home
-              work: Work
-        type:
-          Label: Medium
-          Widget: Dropdown
-          OptionsProvider:
-            name: Array
-            options:
-              aim: Aim
-              email: Email
-              gizmo: Gizmo
-              icq: Icq
-              jabber: Jabber
-              msn: Msn
-              sip: Sip
-              skype: Skype
-              url: Url
-              yahoo: Yahoo
+Assets:
+  Bundles:
+    CSS:
+      'Twitter.Bootstra:Bootstrap':
+        'resource://Twitter.Bootstrap/Public/less/variables.less': 
+          After: 
+            - 'resource://Demo.ContentManagement/Public/less/variables.less'
+
+TYPO3:
+  TYPO3CR:
+    contentTypes:
+      'TYPO3.TYPO3:Page':
+        Active: true
+      'TYPO3.TYPO3:Text':
+        Active: true
+
+Foo:
+  ContentManagement:
+    Annotations:
+      TYPO3\TYPO3\Domain\Model\User:
+        active: true
+        Properties: 
+          name: 
+            Inline: Foo.ContentManagement:InlineSeamless
+          electronicAddresses:
+            Inline: true
+          preferences:
+            Ignore: true
+          accounts:
+            Inline: Foo.ContentManagement:InlineSeamless
+      TYPO3\Party\Domain\Model\PersonName:
+        Properties:
+          title:
+            Ignore: true
+          otherName:
+            Ignore: true
+          middleName:
+            Ignore: true
+          fullName:
+            Ignore: true
+          alias:
+            Ignore: true
+      TYPO3\FLOW3\Security\Account:
+        Properties:
+          accountIdentifier:
+            Title: true
+          roles:
+            Ignore: true
+          creationDate:
+            Ignore: true
+          party:
+            Ignore: true
+          expirationDate:
+            Ignore: true
+          authenticationProviderName:
+            Ignore: true
+      TYPO3\Party\Domain\Model\ElectronicAddress:
+        Properties:
+          type:
+            Widget: TYPO3.Form:SingleSelectDropdown
+            OptionsProvider: 
+              Name: ConstOptionsProvider
+              RegEx: TYPE_.+
+          usage:
+            Widget: TYPO3.Form:SingleSelectDropdown
+            OptionsProvider: 
+              Name: ConstOptionsProvider
+              RegEx: USAGE_.+

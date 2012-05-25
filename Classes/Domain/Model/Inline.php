@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminDemo\Domain\Model;
+namespace Demo\ContentManagement\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Contacts".                   *
@@ -24,7 +24,7 @@ namespace AdminDemo\Domain\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
-use Admin\Annotations as Admin;
+use Foo\ContentManagement\Annotations as CM;
 
 /**
  *
@@ -32,42 +32,95 @@ use Admin\Annotations as Admin;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @FLOW3\Scope("prototype")
  * @FLOW3\Entity
- * @Admin\Active
- * @Admin\Group("Testcases")
+ * @CM\Active
+ * @CM\Group("Testcases")
  */
-class Inline extends \Admin\Core\Domain\Magic{
+class Inline {
 	
 	/**
-	 * @var \AdminDemo\Domain\Model\Address
+	 * @var \Demo\ContentManagement\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments", cascade={"all"})
-	 * @Admin\Inline()
-	 * @Admin\Label("A single Address in stacked Layout")
+	 * @CM\Inline(variant="Foo.ContentManagement:InlineStacked")
+	 * @CM\Label("A single Address in stacked Layout")
 	 */
 	protected $addressStacked;
 	
 	/**
-	 * @var \AdminDemo\Domain\Model\Address
+	 * @var \Demo\ContentManagement\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments", cascade={"all"})
-	 * @Admin\Inline()
-	 * @Admin\Variant("Tabular")
+	 * @CM\Inline
 	 */
 	protected $addressTabular;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany", cascade={"all"})
-	 * @Admin\Inline()
+	 * @CM\Inline(variant="Foo.ContentManagement:InlineStacked")
 	 */
 	protected $addressesStacked;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany", cascade={"all"})
-	 * @Admin\Inline()
-	 * @Admin\Variant("Tabular")
+	 * @CM\Inline
 	 */
 	protected $addressesTabular;
+
+	/**
+	 * @param  $addressStacked
+	 */
+	public function setAddressStacked($addressStacked) {
+		$this->addressStacked = $addressStacked;
+	}
 	
+	/**
+	 * @return 
+	 */
+	public function getAddressStacked() {
+		return $this->addressStacked;
+	}
+	
+	/**
+	 * @param  $addressTabular
+	 */
+	public function setAddressTabular($addressTabular) {
+		$this->addressTabular = $addressTabular;
+	}
+	
+	/**
+	 * @return 
+	 */
+	public function getAddressTabular() {
+		return $this->addressTabular;
+	}
+
+	/**
+	 * @param  $addressesStacked
+	 */
+	public function setAddressesStacked($addressesStacked) {
+		$this->addressesStacked = $addressesStacked;
+	}
+	
+	/**
+	 * @return 
+	 */
+	public function getAddressesStacked() {
+		return $this->addressesStacked;
+	}
+
+	/**
+	 * @param  $addressesTabular
+	 */
+	public function setAddressesTabular($addressesTabular) {
+		$this->addressesTabular = $addressesTabular;
+	}
+	
+	/**
+	 * @return 
+	 */
+	public function getAddressesTabular() {
+		return $this->addressesTabular;
+	}
 }
 
 ?>

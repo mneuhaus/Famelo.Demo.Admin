@@ -1,6 +1,6 @@
 <?php
 declare(ENCODING = 'utf-8');
-namespace AdminDemo\Faker;
+namespace Demo\ContentManagement\Faker;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Faker".                      *
@@ -76,9 +76,9 @@ class Internet extends Faker {
 	static public function userName($name = NULL) {
 		if ($name === NULL) {
 			if (rand(1, 10) > 5) {
-				$name = \AdminDemo\Faker\Name::firstName() . ' ' . \AdminDemo\Faker\Name::lastName();
+				$name = \Demo\ContentManagement\Faker\Name::firstName() . ' ' . \Demo\ContentManagement\Faker\Name::lastName();
 			} else {
-				$name = \AdminDemo\Faker\Name::firstName();
+				$name = \Demo\ContentManagement\Faker\Name::firstName();
 			}
 		}
 
@@ -108,7 +108,7 @@ class Internet extends Faker {
 	 * @author Karsten Dambekalns <karsten@typo3.org>
 	 */
 	static protected function domainWord() {
-		$words = explode(' ', \AdminDemo\Faker\Company::name());
+		$words = explode(' ', \Demo\ContentManagement\Faker\Company::name());
 		shuffle($words);
 		return strtolower(preg_replace('/\W/', '', current($words)));
 	}

@@ -1,5 +1,5 @@
 <?php
-namespace AdminDemo\Domain\Repository;
+namespace Demo\ContentManagement\Domain\Repository;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "AdminDemo".                  *

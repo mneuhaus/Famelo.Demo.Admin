@@ -1,6 +1,6 @@
 <?php
 declare(ENCODING = 'utf-8');
-namespace AdminDemo\Faker;
+namespace Demo\ContentManagement\Faker;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Faker".                      *
@@ -37,9 +37,9 @@ class Company extends Faker {
 	 * @var array
 	 */
 	static protected $formats = array(
-		array('format' => '%s %s', 'parts' => array(array('\AdminDemo\Faker\Name','lastName'), array('\AdminDemo\Faker\Company', 'suffix'))),
-		array('format' => '%s-%s', 'parts' => array(array('\AdminDemo\Faker\Name','lastName'), array('\AdminDemo\Faker\Name','lastName'))),
-		array('format' => '%s, %s and %s', 'parts' => array(array('\AdminDemo\Faker\Name','lastName'), array('\AdminDemo\Faker\Name','lastName'), array('\AdminDemo\Faker\Name','lastName')))
+		array('format' => '%s %s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','lastName'), array('\Demo\ContentManagement\Faker\Company', 'suffix'))),
+		array('format' => '%s-%s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','lastName'), array('\Demo\ContentManagement\Faker\Name','lastName'))),
+		array('format' => '%s, %s and %s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','lastName'), array('\Demo\ContentManagement\Faker\Name','lastName'), array('\Demo\ContentManagement\Faker\Name','lastName')))
 	);
 
 	/**

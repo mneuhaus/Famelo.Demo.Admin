@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminDemo\Domain\Model;
+namespace Demo\ContentManagement\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Contacts".                   *
@@ -24,7 +24,7 @@ namespace AdminDemo\Domain\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
-use Admin\Annotations as Admin;
+use Foo\ContentManagement\Annotations as ContentManagement;
 
 /**
  *
@@ -32,13 +32,13 @@ use Admin\Annotations as Admin;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @FLOW3\Scope("prototype")
  * @FLOW3\Entity
- * @Admin\Active
- * @Admin\Group("Testcases")
- * @Admin\Set(title="Default Types", properties="string,integer,float,boolean,date,time,datetime,resource,tag,tags")
- * @Admin\Set(title="Textinput", properties="textarea,autoexpand,fullrte,markdown")
- * @Admin\Set(title="Relations", properties="address, addresses, addressesChosen")
+ * @ContentManagement\Active
+ * @ContentManagement\Group("Testcases")
+ * @ContentManagement\Set(title="Default Types", properties="string,integer,float,boolean,date,time,datetime,resource,tag,tags")
+ * @ContentManagement\Set(title="Textinput", properties="textarea,autoexpand,fullrte,markdown")
+ * @ContentManagement\Set(title="Relations", properties="address, addresses, addressesChosen")
  */
-class Widgets extends \Admin\Core\Domain\Magic{
+class Widgets{
 	/**
 	 * @var string
 	 * @FLOW3\Identity
@@ -63,13 +63,13 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	
 	/**
 	 * @var \DateTime
-	 * @Admin\Representation(datetimeFormat="Y-m-d")
+	 * @ContentManagement\Representation(datetimeFormat="Y-m-d")
 	 */
 	protected $date;
 	
 	/**
 	 * @var \DateTime
-	 * @Admin\Representation(datetimeFormat="H:i:s")
+	 * @ContentManagement\Representation(datetimeFormat="H:i:s")
 	 */
 	protected $time;
 	
@@ -82,51 +82,199 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	 * @var \TYPO3\FLOW3\Resource\Resource
 	 * @ORM\OneToOne
 	 */
-	protected $resource;
+	#protected $resource;
 	
 	/**
-	 * @var \AdminDemo\Domain\Model\Address
+	 * @var \Demo\ContentManagement\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments")
 	 */
 	protected $address;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
-	 * @Admin\Ignore("list")
+	 * @ContentManagement\Ignore("list")
 	 */
 	protected $addresses;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
-	 * @Admin\Ignore("list")
-	 * @Admin\Widget("Chosen")
+	 * @ContentManagement\Ignore("list")
+	 * ContentManagement\Widget("Chosen")
 	 */
-	protected $addressesChosen;
+	#protected $addressesChosen;
 	
 	/**
 	 * @var string
-	 * @Admin\Widget("Textarea")
+	 * @ContentManagement\Widget("TYPO3.Form:MultiLineText")
 	 */
 	protected $textarea;
+
+	/**
+	 * @var string
+	 * @ContentManagement\Widget("TYPO3.Form:Password")
+	 */
+	protected $password;
 	
 	/**
 	 * @var string
-	 * @Admin\Editor("RichText")
 	 */
-	protected $fullrte;
+	#protected $fullrte;
 	
 	/**
 	 * @var string
-	 * @Admin\Editor("Markdown")
 	 */
-	protected $markdown;
+	#protected $markdown;
 
     public function __construct(){
 		$this->date = new \DateTime();
 		$this->time = new \DateTime();
 		$this->datetime = new \DateTime();
+    }
+
+    public function __toString() {
+        return $this->string;
+    }
+
+    /**
+     * @param  $string
+     */
+    public function setString($string) {
+    	$this->string = $string;
+    }
+    
+    /**
+     * @return 
+     */
+    public function getString() {
+    	return $this->string;
+    }
+
+    /**
+     * @param  $boolean
+     */
+    public function setBoolean($boolean) {
+    	$this->boolean = $boolean;
+    }
+    
+    /**
+     * @return 
+     */
+    public function getBoolean() {
+    	return $this->boolean;
+    }
+
+    /**
+     * @param  $date
+     */
+    public function setDate($date) {
+    	$this->date = $date;
+    }
+    
+    /**
+     * @return 
+     */
+    public function getDate() {
+    	return $this->date;
+    }
+
+    /**
+     * @param  $datetime
+     */
+    public function setDatetime($datetime) {
+    	$this->datetime = $datetime;
+    }
+    
+    /**
+     * @return 
+     */
+    public function getDatetime() {
+    	return $this->datetime;
+    }
+
+    /**
+     * @param  $time
+     */
+    public function setTime($time) {
+    	$this->time = $time;
+    }
+    
+    /**
+     * @return 
+     */
+    public function getTime() {
+    	return $this->time;
+    }
+
+    /**
+     * @param  $textarea
+     */
+    public function setTextarea($textarea) {
+    	$this->textarea = $textarea;
+    }
+    
+    /**
+     * @return 
+     */
+    public function getTextarea() {
+    	return $this->textarea;
+    }
+
+    /**
+     * @param  $password
+     */
+    public function setPassword($password) {
+    	$this->password = $password;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getPassword() {
+    	return $this->password;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address) {
+    	$this->address = $address;
+    }
+    
+    /**
+     * @return object
+     */
+    public function getAddress() {
+    	return $this->address;
+    }
+
+    /**
+     * @param object $addresses
+     */
+    public function setAddresses($addresses) {
+    	$this->addresses = $addresses;
+    }
+    
+    /**
+     * @return object
+     */
+    public function getAddresses() {
+    	return $this->addresses;
+    }
+
+    /**
+     * @param object $addressesChosen
+     */
+    public function setAddressesChosen($addressesChosen) {
+    	$this->addressesChosen = $addressesChosen;
+    }
+    
+    /**
+     * @return object
+     */
+    public function getAddressesChosen() {
+    	return $this->addressesChosen;
     }
 }
 

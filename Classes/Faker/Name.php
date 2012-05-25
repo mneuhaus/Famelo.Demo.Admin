@@ -1,6 +1,6 @@
 <?php
 declare(ENCODING = 'utf-8');
-namespace AdminDemo\Faker;
+namespace Demo\ContentManagement\Faker;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Faker".                      *

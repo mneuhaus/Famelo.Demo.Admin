@@ -1,6 +1,6 @@
 <?php
 declare(ENCODING = 'utf-8');
-namespace AdminDemo\Faker;
+namespace Demo\ContentManagement\Faker;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Faker".                      *
@@ -40,7 +40,7 @@ class Entity{
 	}
 	
 	static public function getRepository($shortName){
-		$repository = sprintf("\AdminDemo\Domain\Repository\%sRepository", $shortName);
+		$repository = sprintf("\Demo\ContentManagement\Domain\Repository\%sRepository", $shortName);
 		return new $repository();
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace AdminDemo\Admin\Actions;
+namespace Demo\ContentManagement\Admin\Actions;
 
 /* *
  * This script belongs to the FLOW3 framework.                            *
@@ -32,14 +32,14 @@ use TYPO3\FLOW3\Annotations as FLOW3;
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  * @FLOW3\Scope("prototype")
  */
-class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
+class FakeSomeAction extends \Foo\ContentManagement\Core\Actions\AbstractAction {
 	
 	/**
 	 * Function to Check if this Requested Action is supported
 	 * @author Marc Neuhaus <mneuhaus@famelo.com>
 	 * */
 	public function canHandle($being, $action = null, $id = false) {
-		if(stristr($being, "AdminDemo\Domain\Model") && !$id)
+		if(stristr($being, "Demo\ContentManagement\Domain\Model") && !$id)
 			return in_array($action, array("list", "create"));
 		return false;
 	}
@@ -57,55 +57,55 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 	 * */
 	public function execute($being, $ids = null) {
 		for ($i=0; $i < 25; $i++) {
-			$object = $this->adapter->getBeing($being);
+			$object = new $being();
 			
 			switch ($being) {
-				case 'AdminDemo\Domain\Model\Company':
+				case 'Demo\ContentManagement\Domain\Model\Company':
 						$data = array(
-							"name" => \AdminDemo\Faker\Company::name()
+							"name" => \Demo\ContentManagement\Faker\Company::name()
 						);
 					break;
 				
-				case 'AdminDemo\Domain\Model\Address':
+				case 'Demo\ContentManagement\Domain\Model\Address':
 						$data = array(
-							"street" => \AdminDemo\Faker\Address::streetName(),
-							"housenumber" => \AdminDemo\Faker\Address::numerify("##"),
-							"zip" => \AdminDemo\Faker\Address::zipCode(),
-							"city" => \AdminDemo\Faker\Address::city(),
-							"country" => \AdminDemo\Faker\Address::ukCountry(),
+							"street" => \Demo\ContentManagement\Faker\Address::streetName(),
+							"housenumber" => \Demo\ContentManagement\Faker\Address::numerify("##"),
+							"zip" => \Demo\ContentManagement\Faker\Address::zipCode(),
+							"city" => \Demo\ContentManagement\Faker\Address::city(),
+							"country" => \Demo\ContentManagement\Faker\Address::ukCountry(),
 						);
 					break;
 					
-				case 'AdminDemo\Domain\Model\Variants':
+				case 'Demo\ContentManagement\Domain\Model\Variants':
 						$data = array(
-							"name" => \AdminDemo\Faker\Lorem::sentence(3),
-							"startdate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C),
-							"enddate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C),
-							"description" => \AdminDemo\Faker\Lorem::paragraph(4),
+							"name" => \Demo\ContentManagement\Faker\Lorem::sentence(3),
+							"startdate" => \Demo\ContentManagement\Faker\Date::random()->format(\DateTime::W3C),
+							"enddate" => \Demo\ContentManagement\Faker\Date::random()->format(\DateTime::W3C),
+							"description" => \Demo\ContentManagement\Faker\Lorem::paragraph(4),
 						);
 					break;
 					
-				case 'AdminDemo\Domain\Model\Event':
+				case 'Demo\ContentManagement\Domain\Model\Event':
 						$data = array(
-							"title" => \AdminDemo\Faker\Lorem::sentence(3),
-							"startdate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C),
-							"enddate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C)
+							"title" => \Demo\ContentManagement\Faker\Lorem::sentence(3),
+							"startdate" => \Demo\ContentManagement\Faker\Date::random()->format(\DateTime::W3C),
+							"enddate" => \Demo\ContentManagement\Faker\Date::random()->format(\DateTime::W3C)
 						);
 					break;
 					
-				case 'AdminDemo\Domain\Model\Person':
+				case 'Demo\ContentManagement\Domain\Model\Person':
 						$data = array(
-							"firstname" => \AdminDemo\Faker\Name::firstName(),
-							"lastname" => \AdminDemo\Faker\Name::lastName()
+							"firstname" => \Demo\ContentManagement\Faker\Name::firstName(),
+							"lastname" => \Demo\ContentManagement\Faker\Name::lastName()
 						);
 					break;
 					
-				case 'AdminDemo\Domain\Model\Message':
+				case 'Demo\ContentManagement\Domain\Model\Message':
 						$data = array(
-							"sender" => \AdminDemo\Faker\Entity::getRandom("Person")->getIdentity(),
-							"receipients" => array(\AdminDemo\Faker\Entity::getRandom("Person")->getIdentity()),
-							"subject" => \AdminDemo\Faker\Lorem::sentence(5),
-							"content" => \AdminDemo\Faker\Lorem::paragraph(4),
+							"sender" => \Demo\ContentManagement\Faker\Entity::getRandom("Person")->getIdentity(),
+							"receipients" => array(\Demo\ContentManagement\Faker\Entity::getRandom("Person")->getIdentity()),
+							"subject" => \Demo\ContentManagement\Faker\Lorem::sentence(5),
+							"content" => \Demo\ContentManagement\Faker\Lorem::paragraph(4),
 						);
 					break;
 						
@@ -120,7 +120,7 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 		}
 		
 		$arguments = array(
-			"being" => \Admin\Core\API::get("classShortNames", $being)
+			"being" => \Foo\ContentManagement\Core\API::get("classShortNames", $being)
 		);
 		$this->controller->redirect('list', "standard", "admin", $arguments);
 	}

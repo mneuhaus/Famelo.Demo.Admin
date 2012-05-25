@@ -1,6 +1,6 @@
 <?php
 declare(ENCODING = 'utf-8');
-namespace AdminDemo\Faker;
+namespace Demo\ContentManagement\Faker;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Faker".                      *
@@ -67,10 +67,10 @@ class Address extends Faker {
 	 * @var array
 	 */
 	static protected $cityFormats = array(
-		array('format' => '%s %s%s', 'parts' => array(array('\AdminDemo\Faker\Address','cityPrefix'), array('\AdminDemo\Faker\Name','firstName'), array('\AdminDemo\Faker\Address','citySuffix'))),
-		array('format' => '%s %s', 'parts' => array(array('\AdminDemo\Faker\Address','cityPrefix'), array('\AdminDemo\Faker\Name','firstName'))),
-		array('format' => '%s%s', 'parts' => array(array('\AdminDemo\Faker\Name','firstName'), array('\AdminDemo\Faker\Address','citySuffix'))),
-		array('format' => '%s%s', 'parts' => array(array('\AdminDemo\Faker\Name','lastName'), array('\AdminDemo\Faker\Address','citySuffix')))
+		array('format' => '%s %s%s', 'parts' => array(array('\Demo\ContentManagement\Faker\Address','cityPrefix'), array('\Demo\ContentManagement\Faker\Name','firstName'), array('\Demo\ContentManagement\Faker\Address','citySuffix'))),
+		array('format' => '%s %s', 'parts' => array(array('\Demo\ContentManagement\Faker\Address','cityPrefix'), array('\Demo\ContentManagement\Faker\Name','firstName'))),
+		array('format' => '%s%s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','firstName'), array('\Demo\ContentManagement\Faker\Address','citySuffix'))),
+		array('format' => '%s%s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','lastName'), array('\Demo\ContentManagement\Faker\Address','citySuffix')))
 	);
 
 	/**
@@ -84,8 +84,8 @@ class Address extends Faker {
 	 * @var array
 	 */
 	static protected $streetNameFormats = array(
-		array('format' => '%s %s', 'parts' => array(array('\AdminDemo\Faker\Name','lastName'), array('\AdminDemo\Faker\Address','streetSuffix'))),
-		array('format' => '%s %s', 'parts' => array(array('\AdminDemo\Faker\Name','firstName'), array('\AdminDemo\Faker\Address','streetSuffix')))
+		array('format' => '%s %s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','lastName'), array('\Demo\ContentManagement\Faker\Address','streetSuffix'))),
+		array('format' => '%s %s', 'parts' => array(array('\Demo\ContentManagement\Faker\Name','firstName'), array('\Demo\ContentManagement\Faker\Address','streetSuffix')))
 	);
 
 	/**
