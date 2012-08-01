@@ -23,7 +23,7 @@ Foo:
           name: 
             Inline: Foo.ContentManagement:InlineSeamless
           electronicAddresses:
-            Inline: true
+            Ignore: true
           preferences:
             Ignore: true
           accounts:
@@ -44,6 +44,8 @@ Foo:
         Properties:
           accountIdentifier:
             Title: true
+          credentialsSource:
+            Label: Passwort
           roles:
             Ignore: true
           creationDate:
@@ -57,12 +59,12 @@ Foo:
       TYPO3\Party\Domain\Model\ElectronicAddress:
         Properties:
           type:
-            Widget: TYPO3.Form:SingleSelectDropdown
+            Element: TYPO3.Form:SingleSelectDropdown
             OptionsProvider: 
               Name: ConstOptionsProvider
               RegEx: TYPE_.+
           usage:
-            Widget: TYPO3.Form:SingleSelectDropdown
+            Element: TYPO3.Form:SingleSelectDropdown
             OptionsProvider: 
               Name: ConstOptionsProvider
               RegEx: USAGE_.+

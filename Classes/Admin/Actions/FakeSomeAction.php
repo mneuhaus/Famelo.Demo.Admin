@@ -55,7 +55,8 @@ class FakeSomeAction extends \Foo\ContentManagement\Core\Actions\AbstractAction 
 	 * @param array $ids
 	 * @author Marc Neuhaus <mneuhaus@famelo.com>
 	 * */
-	public function execute($being, $ids = null) {
+	public function execute() {
+		$being = $this->request->getArgument("being");
 		for ($i=0; $i < 25; $i++) {
 			$object = new $being();
 			

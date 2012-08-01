@@ -1,0 +1,18 @@
+# Bundles:
+#   Css:
+#     Bootstrap:
+#       - Bootstrap/Less/Variables.less
+#       - Bootstrap/Less/Mixins.less
+#       - Bootstrap/Less/Styles.less
+#     Debug:
+#       - Private/Css/VarDump.css
+
+#   Alterations:
+#     CSS:
+#       Bootstrap:
+#         Bootstrap/Less/Variables.less:
+#           after: 
+#             -Foo/Bar/Less/MyVariables.less
+Filters:
+  CSS:
+    LessFilter: []

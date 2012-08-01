@@ -101,19 +101,19 @@ class Widgets{
 	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
 	 * @ContentManagement\Ignore("list")
-	 * ContentManagement\Widget("Chosen")
+	 * ContentManagement\Element("Chosen")
 	 */
 	#protected $addressesChosen;
 	
 	/**
 	 * @var string
-	 * @ContentManagement\Widget("TYPO3.Form:MultiLineText")
+	 * @ContentManagement\Element("TYPO3.Form:MultiLineText")
 	 */
 	protected $textarea;
 
 	/**
 	 * @var string
-	 * @ContentManagement\Widget("TYPO3.Form:Password")
+	 * @ContentManagement\Element("TYPO3.Form:Password")
 	 */
 	protected $password;
 	

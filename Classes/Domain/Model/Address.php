@@ -24,6 +24,7 @@ class Address {
 	 * @var string
 	 * @FLOW3\Validate(type="NotEmpty")
 	 * @ContentManagement\Search
+	 * @ContentManagement\Label("Strasse")
 	 */
 	protected $street = "";
 	
