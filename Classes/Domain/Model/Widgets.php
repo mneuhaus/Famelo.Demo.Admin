@@ -24,7 +24,7 @@ namespace Demo\ContentManagement\Domain\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
-use Foo\ContentManagement\Annotations as ContentManagement;
+use TYPO3\Admin\Annotations as Admin;
 
 /**
  *
@@ -32,11 +32,11 @@ use Foo\ContentManagement\Annotations as ContentManagement;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @FLOW3\Scope("prototype")
  * @FLOW3\Entity
- * @ContentManagement\Active
- * @ContentManagement\Group("Testcases")
- * @ContentManagement\Set(title="Default Types", properties="string,integer,float,boolean,date,time,datetime,resource,tag,tags")
- * @ContentManagement\Set(title="Textinput", properties="textarea,autoexpand,fullrte,markdown")
- * @ContentManagement\Set(title="Relations", properties="address, addresses, addressesChosen")
+ * @Admin\Active
+ * @Admin\Group("Testcases")
+ * @Admin\Set(title="Default Types", properties="string,integer,float,boolean,date,time,datetime,resource,tag,tags")
+ * @Admin\Set(title="Textinput", properties="textarea,autoexpand,fullrte,markdown")
+ * @Admin\Set(title="Relations", properties="address, addresses, addressesChosen")
  */
 class Widgets{
 	/**
@@ -63,13 +63,13 @@ class Widgets{
 	
 	/**
 	 * @var \DateTime
-	 * @ContentManagement\Representation(datetimeFormat="Y-m-d")
+	 * @Admin\Representation(datetimeFormat="Y-m-d")
 	 */
 	protected $date;
 	
 	/**
 	 * @var \DateTime
-	 * @ContentManagement\Representation(datetimeFormat="H:i:s")
+	 * @Admin\Representation(datetimeFormat="H:i:s")
 	 */
 	protected $time;
 	
@@ -93,27 +93,27 @@ class Widgets{
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
-	 * @ContentManagement\Ignore("list")
+	 * @Admin\Ignore("list")
 	 */
 	protected $addresses;
 	
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Demo\ContentManagement\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
-	 * @ContentManagement\Ignore("list")
+	 * @Admin\Ignore("list")
 	 * ContentManagement\Element("Chosen")
 	 */
 	#protected $addressesChosen;
 	
 	/**
 	 * @var string
-	 * @ContentManagement\Element("TYPO3.Form:MultiLineText")
+	 * @Admin\Element("TYPO3.Form:MultiLineText")
 	 */
 	protected $textarea;
 
 	/**
 	 * @var string
-	 * @ContentManagement\Element("TYPO3.Form:Password")
+	 * @Admin\Element("TYPO3.Form:Password")
 	 */
 	protected $password;
 	

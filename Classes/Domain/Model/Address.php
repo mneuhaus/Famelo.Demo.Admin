@@ -8,23 +8,23 @@ namespace Demo\ContentManagement\Domain\Model;
 
 use TYPO3\FLOW3\Annotations as FLOW3;
 use Doctrine\ORM\Mapping as ORM;
-use Foo\ContentManagement\Annotations as ContentManagement;
+use TYPO3\Admin\Annotations as Admin;
 
 /**
  * A Address
  *
  * @FLOW3\Scope("prototype")
  * @FLOW3\Entity
- * @ContentManagement\Active
- * @ContentManagement\Group("CRM")
+ * @Admin\Active
+ * @Admin\Group("CRM")
  */
 class Address {
 	
 	/**
 	 * @var string
 	 * @FLOW3\Validate(type="NotEmpty")
-	 * @ContentManagement\Search
-	 * @ContentManagement\Label("Strasse")
+	 * @Admin\Search
+	 * @Admin\Label("Strasse")
 	 */
 	protected $street = "";
 	
@@ -46,7 +46,7 @@ class Address {
 	
 	/**
 	 * @var string
-	 * @ContentManagement\Filter
+	 * @Admin\Filter
 	 */
 	protected $country;
 	

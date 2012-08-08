@@ -24,7 +24,7 @@ namespace Demo\ContentManagement\Domain\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
-use Foo\ContentManagement\Annotations as CM;
+use TYPO3\Admin\Annotations as CM;
 
 /**
  *

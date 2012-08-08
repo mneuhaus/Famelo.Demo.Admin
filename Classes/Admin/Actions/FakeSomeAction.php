@@ -32,7 +32,7 @@ use TYPO3\FLOW3\Annotations as FLOW3;
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  * @FLOW3\Scope("prototype")
  */
-class FakeSomeAction extends \Foo\ContentManagement\Core\Features\AbstractFeature {
+class FakeSomeAction extends \TYPO3\Admin\Core\Features\AbstractFeature {
 	
 	/**
 	 * Function to Check if this Requested Action is supported
@@ -121,7 +121,7 @@ class FakeSomeAction extends \Foo\ContentManagement\Core\Features\AbstractFeatur
 		}
 		
 		$arguments = array(
-			"being" => \Foo\ContentManagement\Core\API::get("classShortNames", $being)
+			"being" => \TYPO3\Admin\Core\API::get("classShortNames", $being)
 		);
 		$this->controller->redirect('list', "standard", "admin", $arguments);
 	}
