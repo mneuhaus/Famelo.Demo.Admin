@@ -1,18 +1,1 @@
-{
-    "name": "famelo/demo/admin",
-    "type": "typo3-flow-framework",
-    "description": "Demo using Famelo.Scaff and TYPO3.Expose",
-    "license": "LGPL-3.0+",
-    "version": "0.1.0-dev",
-    "require": {
-        "typo3/flow-composer-installers": "*",
-        "typo3/flow": "*",
-        "famelo/scaff": "*",
-        "typo3/expose": "*"
-    },
-    "autoload": {
-        "psr-0": {
-            "Famelo\\Demo\\Admin": "Classes"
-        }
-    }
-}
+{"name":"famelo\/demo-admin","type":"typo3-flow-package","description":"","version":"","require":{"typo3\/flow":"*"},"autoload":{"psr-0":{"Famelo\\Demo\\Admin":"Classes"}}}
