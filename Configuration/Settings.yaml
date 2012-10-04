@@ -1,70 +1,36 @@
-Assets:
-  Bundles:
-    CSS:
-      'Twitter.Bootstra:Bootstrap':
-        'resource://Twitter.Bootstrap/Public/less/variables.less': 
-          After: 
-            - 'resource://Demo.ContentManagement/Public/less/variables.less'
+Famelo:
+  Scaff:
+    modules:
+      intro:
+        label: 'Intro'
+        controller: '\Demo\Admin\Controller\StandardController'
 
-TYPO3:
-  TYPO3CR:
-    contentTypes:
-      'TYPO3.TYPO3:Page':
-        Active: true
-      'TYPO3.TYPO3:Text':
-        Active: true
+      widgets:
+        label: 'Widgets'
+        defaultControllerArguments:
+            --scaffRuntime:
+              @action: 'index'
+              @controller: 'Expose'
+              --exposeRuntime:
+                @action: 'index'
+                @controller: "SameTypeList"
+                type: 'Demo\Admin\Domain\Model\Widgets'
 
-Foo:
-  ContentManagement:
-    Annotations:
-      TYPO3\TYPO3\Domain\Model\User:
-        active: true
-        Properties: 
-          name: 
-            Inline: Foo.ContentManagement:InlineSeamless
-          electronicAddresses:
-            Ignore: true
-          preferences:
-            Ignore: true
-          accounts:
-            Inline: Foo.ContentManagement:InlineSeamless
-      TYPO3\Party\Domain\Model\PersonName:
-        Properties:
-          title:
-            Ignore: true
-          otherName:
-            Ignore: true
-          middleName:
-            Ignore: true
-          fullName:
-            Ignore: true
-          alias:
-            Ignore: true
-      TYPO3\FLOW3\Security\Account:
-        Properties:
-          accountIdentifier:
-            Title: true
-          credentialsSource:
-            Label: Passwort
-          roles:
-            Ignore: true
-          creationDate:
-            Ignore: true
-          party:
-            Ignore: true
-          expirationDate:
-            Ignore: true
-          authenticationProviderName:
-            Ignore: true
-      TYPO3\Party\Domain\Model\ElectronicAddress:
-        Properties:
-          type:
-            Element: TYPO3.Form:SingleSelectDropdown
-            OptionsProvider: 
-              Name: ConstOptionsProvider
-              RegEx: TYPE_.+
-          usage:
-            Element: TYPO3.Form:SingleSelectDropdown
-            OptionsProvider: 
-              Name: ConstOptionsProvider
-              RegEx: USAGE_.+
+      addresses:
+        label: 'Adresses'
+        defaultControllerArguments:
+            --scaffRuntime:
+              @controller: 'Expose'
+              --exposeRuntime:
+                  @controller: "SameTypeList"
+                  @action: 'index'
+                  type: 'Demo\Admin\Domain\Model\Address'
+      users:
+        label: 'Users'
+        controller: '\Famelo\Scaff\Controller\ExposeController'
+        defaultControllerArguments:
+            --exposeRuntime:
+                @controller: "sametypelist"
+                @action: 'index'
+                @package: 'TYPO3.Admin'
+                type: 'Demo\Admin\Domain\Model\User'
