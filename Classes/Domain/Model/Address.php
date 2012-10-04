@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Admin\Domain\Model;
+namespace Famelo\Demo\Admin\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "AdminDemo".                  *

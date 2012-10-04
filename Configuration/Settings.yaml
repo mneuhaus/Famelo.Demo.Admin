@@ -3,7 +3,7 @@ Famelo:
     modules:
       intro:
         label: 'Intro'
-        controller: '\Demo\Admin\Controller\StandardController'
+        controller: '\Famelo\Demo\Admin\Controller\StandardController'
 
       widgets:
         label: 'Widgets'
@@ -14,7 +14,7 @@ Famelo:
               --exposeRuntime:
                 @action: 'index'
                 @controller: "SameTypeList"
-                type: 'Demo\Admin\Domain\Model\Widgets'
+                type: 'Famelo\Demo\Admin\Domain\Model\Widgets'
 
       addresses:
         label: 'Adresses'
@@ -24,7 +24,7 @@ Famelo:
               --exposeRuntime:
                   @controller: "SameTypeList"
                   @action: 'index'
-                  type: 'Demo\Admin\Domain\Model\Address'
+                  type: 'Famelo\Demo\Admin\Domain\Model\Address'
       users:
         label: 'Users'
         controller: '\Famelo\Scaff\Controller\ExposeController'
@@ -33,4 +33,4 @@ Famelo:
                 @controller: "sametypelist"
                 @action: 'index'
                 @package: 'TYPO3.Admin'
-                type: 'Demo\Admin\Domain\Model\User'
+                type: 'Famelo\Demo\Admin\Domain\Model\User'

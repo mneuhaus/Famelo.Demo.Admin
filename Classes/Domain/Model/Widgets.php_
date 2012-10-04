@@ -1,6 +1,6 @@
 <?php
 
-namespace Demo\Admin\Domain\Model;
+namespace Famelo\Demo\Admin\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Contacts".                   *
@@ -85,20 +85,20 @@ class Widgets{
 	#protected $resource;
 	
 	/**
-	 * @var \Demo\Admin\Domain\Model\Address
+	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments")
 	 */
 #	protected $address;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\Demo\Admin\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
 	 * @Admin\Ignore("list")
 	 */
 #	protected $addresses;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\Demo\Admin\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
 	 * @Admin\Ignore("list")
 	 * ContentManagement\Element("Chosen")

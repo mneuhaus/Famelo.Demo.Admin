@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Admin\Domain\Repository;
+namespace Famelo\Demo\Admin\Domain\Repository;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "AdminDemo".                  *
@@ -9,13 +9,11 @@ namespace Demo\Admin\Domain\Repository;
 use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
- * A repository for Projects
+ * A repository for Inlines
  *
  * @FLOW3\Scope("singleton")
  */
-class AnnotationsRepository extends \TYPO3\FLOW3\Persistence\Repository {
-
-	// add customized methods here
+class InlineRepository extends \TYPO3\FLOW3\Persistence\Repository {
 
 }
 ?>

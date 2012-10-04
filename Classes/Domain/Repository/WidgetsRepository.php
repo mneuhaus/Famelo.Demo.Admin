@@ -1,6 +1,6 @@
 <?php
 
-namespace Demo\Admin\Domain\Repository;
+namespace Famelo\Demo\Admin\Domain\Repository;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Blog".                       *
@@ -22,11 +22,14 @@ namespace Demo\Admin\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\FLOW3\Annotations as FLOW3;
+
 /**
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @FLOW3\Scope("singleton")
  */
-class ValidationRepository extends \TYPO3\FLOW3\Persistence\Repository {
+class WidgetsRepository extends \TYPO3\FLOW3\Persistence\Repository {
 }
 ?>

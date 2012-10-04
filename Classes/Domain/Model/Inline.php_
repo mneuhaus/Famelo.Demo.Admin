@@ -1,6 +1,6 @@
 <?php
 
-namespace Demo\Admin\Domain\Model;
+namespace Famelo\Demo\Admin\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Contacts".                   *
@@ -38,7 +38,7 @@ use \TYPO3\Expose\Annotations as CM;
 class Inline {
 	
 	/**
-	 * @var \Demo\Admin\Domain\Model\Address
+	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments", cascade={"all"})
 	 * @CM\Inline(variant="Foo.ContentManagement:InlineStacked")
 	 * @CM\Label("A single Address in stacked Layout")
@@ -46,21 +46,21 @@ class Inline {
 	protected $addressStacked;
 	
 	/**
-	 * @var \Demo\Admin\Domain\Model\Address
+	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments", cascade={"all"})
 	 * @CM\Inline
 	 */
 	protected $addressTabular;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\Demo\Admin\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany", cascade={"all"})
 	 * @CM\Inline(variant="Foo.ContentManagement:InlineStacked")
 	 */
 	protected $addressesStacked;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\Demo\Admin\Domain\Model\Address>
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany", cascade={"all"})
 	 * @CM\Inline
 	 */

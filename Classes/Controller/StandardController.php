@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Admin\Controller;
+namespace Famelo\Demo\Admin\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Debug.Toolbar".              *
