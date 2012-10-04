@@ -6,20 +6,20 @@ namespace Famelo\Demo\Admin\Domain\Model;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * A Address
  *
- * @FLOW3\Scope("prototype")
- * @FLOW3\Entity
+ * @Flow\Scope("prototype")
+ * @Flow\Entity
  */
 class Address {
 	
 	/**
 	 * @var string
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $street = "";
 	
