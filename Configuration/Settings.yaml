@@ -3,34 +3,33 @@ Famelo:
     modules:
       intro:
         label: 'Intro'
-        controller: '\Famelo\Demo\Admin\Controller\StandardController'
+        arguments:
+          @controller: 'Standard'
+          @package: 'Famelo.Demo.Admin'
 
-      widgets:
-        label: 'Widgets'
-        defaultControllerArguments:
-            --scaffRuntime:
-              @action: 'index'
-              @controller: 'Expose'
-              --exposeRuntime:
-                @action: 'index'
-                @controller: "SameTypeList"
-                type: 'Famelo\Demo\Admin\Domain\Model\Widgets'
+      catalog:
+        label: 'Package Catalog'
+        arguments:
+          @controller: 'Standard'
+          @package: 'TYPO3.PackageCatalog'
+
+      inline:
+        label: 'Inline'
+        arguments:
+          @action: 'index'
+          @controller: 'Expose'
+          --exposeRuntime:
+            @action: 'index'
+            @controller: "SameTypeList"
+            @package: "TYPO3.Expose"
+            type: 'Famelo\Demo\Admin\Domain\Model\Inline'
 
       addresses:
         label: 'Adresses'
-        defaultControllerArguments:
-            --scaffRuntime:
-              @controller: 'Expose'
-              --exposeRuntime:
-                  @controller: "SameTypeList"
-                  @action: 'index'
-                  type: 'Famelo\Demo\Admin\Domain\Model\Address'
-      users:
-        label: 'Users'
-        controller: '\Famelo\Scaff\Controller\ExposeController'
-        defaultControllerArguments:
-            --exposeRuntime:
-                @controller: "sametypelist"
-                @action: 'index'
-                @package: 'TYPO3.Admin'
-                type: 'Famelo\Demo\Admin\Domain\Model\User'
+        arguments:
+          @controller: 'Expose'
+          --exposeRuntime:
+              @controller: "SameTypeList"
+              @action: 'index'
+              @package: "TYPO3.Expose"
+              type: 'Famelo\Demo\Admin\Domain\Model\Address'

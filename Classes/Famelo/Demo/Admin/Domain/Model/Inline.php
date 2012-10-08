@@ -3,7 +3,7 @@
 namespace Famelo\Demo\Admin\Domain\Model;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "Contacts".                   *
+ * This script belongs to the Flow package "Contacts".                    *
  *                                                                        *
  * It is free software; you can redistribute it and/or modify it under    *
  * the terms of the GNU General Public License as published by the Free   *
@@ -23,46 +23,43 @@ namespace Famelo\Demo\Admin\Domain\Model;
  *                                                                        */
 
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\FLOW3\Annotations as FLOW3;
-use \TYPO3\Expose\Annotations as CM;
+use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Expose\Annotations as Expose;
 
 /**
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- * @FLOW3\Scope("prototype")
- * @FLOW3\Entity
- * @CM\Active
- * @CM\Group("Testcases")
+ * @Flow\Scope("prototype")
+ * @Flow\Entity
  */
 class Inline {
-	
+
 	/**
 	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments", cascade={"all"})
-	 * @CM\Inline(variant="Foo.ContentManagement:InlineStacked")
-	 * @CM\Label("A single Address in stacked Layout")
+	 * @Expose\Inline(variant="TYPO3.Expose:InlineStacked")
 	 */
 	protected $addressStacked;
-	
+
 	/**
 	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments", cascade={"all"})
-	 * @CM\Inline
+	 * Expose\Inline(variant="TYPO3.Expose:InlineTabular")
 	 */
 	protected $addressTabular;
-	
+
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany", cascade={"all"})
-	 * @CM\Inline(variant="Foo.ContentManagement:InlineStacked")
+	 * @Expose\Inline(variant="TYPO3.Expose:InlineStacked")
 	 */
 	protected $addressesStacked;
-	
+
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany", cascade={"all"})
-	 * @CM\Inline
+	 * Expose\Inline
 	 */
 	protected $addressesTabular;
 
@@ -72,23 +69,23 @@ class Inline {
 	public function setAddressStacked($addressStacked) {
 		$this->addressStacked = $addressStacked;
 	}
-	
+
 	/**
-	 * @return 
+	 * @return
 	 */
 	public function getAddressStacked() {
 		return $this->addressStacked;
 	}
-	
+
 	/**
 	 * @param  $addressTabular
 	 */
 	public function setAddressTabular($addressTabular) {
 		$this->addressTabular = $addressTabular;
 	}
-	
+
 	/**
-	 * @return 
+	 * @return
 	 */
 	public function getAddressTabular() {
 		return $this->addressTabular;
@@ -100,9 +97,9 @@ class Inline {
 	public function setAddressesStacked($addressesStacked) {
 		$this->addressesStacked = $addressesStacked;
 	}
-	
+
 	/**
-	 * @return 
+	 * @return
 	 */
 	public function getAddressesStacked() {
 		return $this->addressesStacked;
@@ -114,9 +111,9 @@ class Inline {
 	public function setAddressesTabular($addressesTabular) {
 		$this->addressesTabular = $addressesTabular;
 	}
-	
+
 	/**
-	 * @return 
+	 * @return
 	 */
 	public function getAddressesTabular() {
 		return $this->addressesTabular;

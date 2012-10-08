@@ -10,9 +10,6 @@ use TYPO3\Flow\Annotations as Flow;
 use Debug\Toolbar\Annotations as Debug;
 
 /**
- * Profile controller for the Debug.Toolbar package 
- *
- * @Flow\Scope("singleton")
  */
 class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	/**
@@ -21,6 +18,14 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @return void
 	 */
 	public function indexAction() {
+	}
+
+	/**
+	 * Index action
+	 *
+	 * @return void
+	 */
+	public function someAction() {
 	}
 
 }
