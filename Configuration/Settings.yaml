@@ -7,11 +7,37 @@ Famelo:
           @controller: 'Standard'
           @package: 'Famelo.Demo.Admin'
 
-      catalog:
-        label: 'Package Catalog'
+      typoscript:
+        label: 'TypoScript'
         arguments:
-          @controller: 'Standard'
-          @package: 'TYPO3.PackageCatalog'
+          @controller: 'TypoScript'
+          @package: 'Famelo.Demo.Admin'
+          @typoScriptPath: 'body'
+
+      create-form:
+        label: 'New Widget'
+        arguments:
+          @action: 'index'
+          @controller: 'Form'
+          @package: 'Famelo.Demo.Admin'
+
+      edit-form:
+        label: 'Edit Widget'
+        arguments:
+          @action: 'edit'
+          @controller: 'Form'
+          @package: 'Famelo.Demo.Admin'
+
+      widgets:
+        label: 'Widgets'
+        arguments:
+          @action: 'index'
+          @controller: 'Expose'
+          --exposeRuntime:
+            @action: 'index'
+            @controller: "SameTypeList"
+            @package: "TYPO3.Expose"
+            type: 'Famelo\Demo\Admin\Domain\Model\Widgets'
 
       inline:
         label: 'Inline'
