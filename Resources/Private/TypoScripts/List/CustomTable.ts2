@@ -1,0 +1,9 @@
+########################################
+# TYPO3.Expose:RecordList.Table
+# --------------------------------------
+# Display a list of common records as table
+########################################
+
+prototype(TYPO3.Expose:RecordList.Custom) < prototype(TYPO3.Expose:RecordList.Table) {
+	templatePath = 'resource://Famelo.Demo.Admin/Private/Elements/List/CustomTable.html'
+}

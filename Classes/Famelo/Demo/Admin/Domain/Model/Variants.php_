@@ -1,0 +1,119 @@
+<?php
+namespace Famelo\Demo\Admin\Domain\Model;
+
+/*                                                                        *
+ * This script belongs to the Flow package "AdminDemo".                  *
+ *                                                                        *
+ *                                                                        */
+
+use TYPO3\Flow\Annotations as Flow;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * A Variants
+ *
+ * @Flow\Entity
+ * _Admin\Variant(variant="Calendar", options="Calendar, List")
+ * _Admin\VariantMapping(title="name", start="startdate", end="enddate")
+ */
+class Variants {
+	/**
+	 * @var string
+	 */
+	protected $name;
+
+	/**
+	 * @var \DateTime
+	 */
+	protected $startdate;
+
+	/**
+	 * @var \DateTime
+	 */
+	protected $enddate;
+
+	/**
+	 * @var \TYPO3\Flow\Resource\Resource
+	 * @ORM\OneToOne()
+	 */
+	protected $resource;
+
+	/**
+	 * @var string
+	 * _Admin\Widget("Textarea")
+	 */
+	protected $description;
+
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * @param \DateTime $enddate
+	 */
+	public function setEnddate($enddate) {
+		$this->enddate = $enddate;
+	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getEnddate() {
+		return $this->enddate;
+	}
+
+	/**
+	 * @param string $name
+	 */
+	public function setName($name) {
+		$this->name = $name;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * @param \TYPO3\Flow\Resource\Resource $resource
+	 */
+	public function setResource($resource) {
+		$this->resource = $resource;
+	}
+
+	/**
+	 * @return \TYPO3\Flow\Resource\Resource
+	 */
+	public function getResource() {
+		return $this->resource;
+	}
+
+	/**
+	 * @param \DateTime $startdate
+	 */
+	public function setStartdate($startdate) {
+		$this->startdate = $startdate;
+	}
+
+	/**
+	 * @return \DateTime
+	 */
+	public function getStartdate() {
+		return $this->startdate;
+	}
+
+
+}
+?>

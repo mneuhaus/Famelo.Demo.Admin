@@ -1,0 +1,18 @@
+prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Widgets) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		zip {
+#			ignore = true
+		}
+	}
+}
+
+prototype(TYPO3.Expose:RecordList.Table).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Widgets) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		addresses {
+			ignore = true
+		}
+		addressesChosen {
+			ignore = true
+		}
+	}
+}

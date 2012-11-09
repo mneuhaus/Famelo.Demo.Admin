@@ -1,0 +1,12 @@
+prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Validation) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		required {
+			label = 'Required'
+		}
+		email {
+			label = 'E-Mail'
+		}
+		string.ignore = true
+		stringlength.ignore = true
+	}
+}

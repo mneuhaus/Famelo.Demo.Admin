@@ -38,42 +38,36 @@ class Inline {
 	/**
 	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="inlineStacked", cascade={"all"})
-	 * @Expose\Inline(element="TYPO3.Expose:InlineStacked")
 	 */
 	protected $addressStacked;
 
 	/**
 	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="inlineTabular", cascade={"all"})
-	 * @Expose\Inline(element="TYPO3.Expose:InlineTabular")
 	 */
 	protected $addressTabular;
 
 	/**
 	 * @var \Famelo\Demo\Admin\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="inlineSeamless", cascade={"all"})
-	 * @Expose\Inline(element="TYPO3.Expose:InlineSeamless")
 	 */
 	protected $addressSeamless;
 
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="inlinesStacked", cascade={"all"})
-	 * @Expose\Inline(element="TYPO3.Expose:InlineStacked")
 	 */
 	protected $addressesStacked;
 
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="inlinesTabular", cascade={"all"})
-	 * @Expose\Inline(element="TYPO3.Expose:InlineTabular")
 	 */
 	protected $addressesTabular;
 
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="inlinesSeamless", cascade={"all"})
-	 * @Expose\Inline(element="TYPO3.Expose:InlineSeamless")
 	 */
 	protected $addressesSeamless;
 

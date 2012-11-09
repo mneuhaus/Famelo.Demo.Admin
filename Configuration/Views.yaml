@@ -1,0 +1,12 @@
+TYPO3:
+  Expose:
+    options:
+      typoScriptPathPatterns:
+        # Add you TypoScripts Path here, in order to Load them
+        # in the TypoScriptView
+        Famelo.Demo.Admin: resource://Famelo.Demo.Admin/Private/TypoScripts/
+
+Famelo:
+  Scaff:
+    options:
+      layoutRootPath: resource://Famelo.Demo.Admin/Private/Layouts/

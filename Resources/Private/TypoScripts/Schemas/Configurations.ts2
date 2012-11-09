@@ -1,0 +1,49 @@
+prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		name {
+			label = 'Custom Label'
+			infotext = 'Some inline information'
+		}
+		ignoreCompletly {
+			ignore = true
+		}
+
+		optionsProvider {
+			element = 'TYPO3.Form:SingleSelectDropdown'
+			optionsProvider {
+				class = 'Array'
+				options {
+					foo = 'Foo'
+					bar = 'Bar'
+				}
+			}
+			infotext = 'This field uses the ArrayOptionsProvider to give choices which will be stored in a simple string field'
+		}
+	}
+}
+
+prototype(TYPO3.Expose:RecordList).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		ignoreListView {
+			ignore = true
+		}
+	}
+}
+
+
+prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations).prototype(TYPO3.Expose:RecordList) {
+	prototype(TYPO3.Expose:RecordList.FormatSelector) {
+		10 = TYPO3.Expose:RecordList.FormatSelector.Button
+		10.format = 'table'
+		10.label = 'Table'
+
+		20 = TYPO3.Expose:RecordList.FormatSelector.Button
+		20.format = 'custom'
+		20.label = 'Custom Table'
+
+		30 = TYPO3.Expose:RecordList.FormatSelector.Button
+		30.format = 'cards'
+		30.label = 'Cards'
+	}
+	recordList.custom = TYPO3.Expose:RecordList.Custom
+}

@@ -1,0 +1,15 @@
+prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Address) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		zip {
+#			ignore = true
+		}
+	}
+}
+
+prototype(TYPO3.Expose:RecordList.Table).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Address) < prototype(TYPO3.Expose:Schema) {
+	properties {
+		zip {
+#			ignore = true
+		}
+	}
+}

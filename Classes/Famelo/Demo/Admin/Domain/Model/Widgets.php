@@ -32,9 +32,6 @@ use \TYPO3\Expose\Annotations as Expose;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @Flow\Scope("prototype")
  * @Flow\Entity
- * @Expose\Section(title="Default Types", properties="string,date,time,datetime")
- * @Expose\Section(title="Textinput", properties="textarea,password")
- * @Expose\Section(title="Relations", properties="address, addresses, addressesChosen")
  */
 class Widgets{
 	/**

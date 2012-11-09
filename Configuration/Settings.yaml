@@ -7,55 +7,101 @@ Famelo:
           @controller: 'Standard'
           @package: 'Famelo.Demo.Admin'
 
-      typoscript:
-        label: 'TypoScript'
-        arguments:
-          @controller: 'TypoScript'
-          @package: 'Famelo.Demo.Admin'
-          @typoScriptPath: 'body'
+      models:
+        label: 'Models'
+        submodules:
+          addresses:
+            label: 'Adresses'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Address.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Address.ts2
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+            arguments:
+              @controller: 'Expose'
+              --exposeRuntime:
+                  @controller: "SameTypeList"
+                  type: 'Famelo\Demo\Admin\Domain\Model\Address'
 
-      create-form:
-        label: 'New Widget'
-        arguments:
-          @action: 'index'
-          @controller: 'Form'
-          @package: 'Famelo.Demo.Admin'
+          configuration:
+            label: 'Configuration'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Configurations.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Configurations.ts2
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/List/CustomTable.ts2
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/Elements/List/CustomTable.html
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+            arguments:
+              @controller: 'Expose'
+              --exposeRuntime:
+                  @controller: "SameTypeList"
+                  type: 'Famelo\Demo\Admin\Domain\Model\Configurations'
 
-      edit-form:
-        label: 'Edit Widget'
-        arguments:
-          @action: 'edit'
-          @controller: 'Form'
-          @package: 'Famelo.Demo.Admin'
-
-      widgets:
-        label: 'Widgets'
-        arguments:
-          @action: 'index'
-          @controller: 'Expose'
-          --exposeRuntime:
-            @action: 'index'
-            @controller: "SameTypeList"
-            @package: "TYPO3.Expose"
-            type: 'Famelo\Demo\Admin\Domain\Model\Widgets'
-
-      inline:
-        label: 'Inline'
-        arguments:
-          @action: 'index'
-          @controller: 'Expose'
-          --exposeRuntime:
-            @action: 'index'
-            @controller: "SameTypeList"
-            @package: "TYPO3.Expose"
-            type: 'Famelo\Demo\Admin\Domain\Model\Inline'
-
-      addresses:
-        label: 'Adresses'
-        arguments:
-          @controller: 'Expose'
-          --exposeRuntime:
-              @controller: "SameTypeList"
+          inline:
+            label: 'Inline'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Inline.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Inline.ts2
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+            arguments:
               @action: 'index'
-              @package: "TYPO3.Expose"
-              type: 'Famelo\Demo\Admin\Domain\Model\Address'
+              @controller: 'Expose'
+              --exposeRuntime:
+                @controller: "SameTypeList"
+                type: 'Famelo\Demo\Admin\Domain\Model\Inline'
+
+          widgets:
+            label: 'Widgets'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+            arguments:
+              @action: 'index'
+              @controller: 'Expose'
+              --exposeRuntime:
+                @controller: "SameTypeList"
+                type: 'Famelo\Demo\Admin\Domain\Model\Widgets'
+
+          validation:
+            label: 'Validation'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Validation.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Validation.ts2
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+            arguments:
+              @action: 'index'
+              @controller: 'Expose'
+              --exposeRuntime:
+                @action: 'index'
+                @controller: "SameTypeList"
+                @package: "TYPO3.Expose"
+                type: 'Famelo\Demo\Admin\Domain\Model\Validation'
+
+      viewhelpers:
+        label: 'ViewHelpers'
+        submodules:
+          create-form:
+            label: 'Create Form'
+            arguments:
+              @action: 'index'
+              @controller: 'NewForm'
+              @package: 'Famelo.Demo.Admin'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/Templates/NewForm/Index.html
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Controller/NewFormController.php
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+
+          edit-form:
+            label: 'Edit Form'
+            arguments:
+              @action: 'index'
+              @controller: 'EditForm'
+              @package: 'Famelo.Demo.Admin'
+            sourceFiles:
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/Templates/EditForm/Index.html
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Controller/EditFormController.php
+              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
+              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
+              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml

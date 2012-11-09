@@ -11,28 +11,20 @@ use Debug\Toolbar\Annotations as Debug;
 
 /**
  */
-class FormController extends \TYPO3\Flow\Mvc\Controller\ActionController {
+class EditFormController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	/**
 	 * Index action
 	 *
 	 * @return void
 	 */
 	public function indexAction() {
-	}
-
-	/**
-	 * Index action
-	 *
-	 * @return void
-	 */
-	public function editAction() {
 		$widget = new \Famelo\Demo\Admin\Domain\Model\Widgets();
 		$widget->setString('Hello World');
 		$this->view->assign('widget', $widget);
 	}
 
 	/**
-	 * Index action
+	 * Save action
 	 *
 	 * @return void
 	 */
