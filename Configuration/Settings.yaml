@@ -7,6 +7,16 @@ Famelo:
           @controller: 'Standard'
           @package: 'Famelo.Demo.Admin'
 
+      helper:
+        label: 'Helper'
+        submodules:
+          clearDatabase:
+            label: 'Clear Database'
+            arguments:
+              @action: 'clearDatabase'
+              @controller: 'Helper'
+              @package: 'Famelo.Demo.Admin'
+
       models:
         label: 'Models'
         submodules:
