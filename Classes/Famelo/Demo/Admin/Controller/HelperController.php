@@ -28,6 +28,8 @@ class HelperController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	public function clearDatabaseAction() {
 		$output = '';
 		$output .= 'Deleted ' . $this->clearRepository('address') . ' Addresses <br />';
+		$output .= 'Deleted ' . $this->clearRepository('validation') . ' Valitations <br />';
+		$output .= 'Deleted ' . $this->clearRepository('configurations') . ' Configurations <br />';
 		return $output;
 	}
 

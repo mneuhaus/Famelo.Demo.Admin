@@ -39,7 +39,7 @@ class Validation {
 	 * @var string
 	 * @Flow\Validate(type="String")
 	 */
-	protected $string;
+	protected $string = "";
 
 	/**
 	 * @var string
@@ -51,7 +51,7 @@ class Validation {
 	 * @var string
 	 * @Flow\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
 	 */
-	protected $stringlength;
+	protected $stringlength = "";
 
     /**
      * @param string $email
