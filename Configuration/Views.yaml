@@ -1,12 +1,11 @@
-TYPO3:
-  Expose:
-    options:
-      typoScriptPathPatterns:
-        # Add you TypoScripts Path here, in order to Load them
-        # in the TypoScriptView
-        Famelo.Demo.Admin: resource://Famelo.Demo.Admin/Private/TypoScripts/
+-
+  requestFilter: 'isPackage("TYPO3.Expose")'
+  options:
+    typoScriptPathPatterns:
+      - 'resource://TYPO3.Expose/Private/TypoScripts/'
+      - 'resource://Famelo.Demo.Admin/Private/TypoScripts/'
 
-Famelo:
-  Scaff:
-    options:
-      layoutRootPath: resource://Famelo.Demo.Admin/Private/Layouts/
+-
+  requestFilter: 'isPackage("TYPO3.Expose") && isController("List")'
+  options:
+    typoScriptPath: '<TYPO3.Expose:RecordList>'

@@ -18,26 +18,34 @@ use TYPO3\Flow\Annotations as Flow;
  */
 class SourceViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractViewHelper {
 	/**
-	 * Render the link.
-	 *
-	 * @param array $files
-	 * @return string The rendered link
+	 * @var \TYPO3\Flow\Configuration\ConfigurationManager
+	 * @Flow\Inject
 	 */
-	public function render($files) {
-		$output = '';
-		if (is_array($files)) {
-			$sources = array();
-			foreach ($files as $file) {
-				$sources[] = array(
-					'code' => file_get_contents(FLOW_PATH_ROOT . $file),
-					'filename' => basename($file),
-					'filepath' => $file
-				);
-			}
+	protected $configurationManager;
 
-			$this->templateVariableContainer->add('sources', $sources);
-			$output = $this->renderChildren();
-			$this->templateVariableContainer->remove('sources');
+	/**
+	 *
+	 * @return string
+	 */
+	public function render() {
+		$output = '';
+		if ($this->controllerContext->getRequest()->hasArgument('sources')) {
+			$source = $this->controllerContext->getRequest()->getArgument('sources');
+			$files = $this->configurationManager->getConfiguration(\TYPO3\Flow\Configuration\ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'Famelo.Demo.Admin.Sources.' . $source);
+			if (is_array($files)) {
+				$sources = array();
+				foreach ($files as $file) {
+					$sources[] = array(
+						'code' => file_get_contents(FLOW_PATH_ROOT . $file),
+						'filename' => basename($file),
+						'filepath' => $file
+					);
+				}
+
+				$this->templateVariableContainer->add('sources', $sources);
+				$output = $this->renderChildren();
+				$this->templateVariableContainer->remove('sources');
+			}
 		}
 		return $output;
 	}

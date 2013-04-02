@@ -1,7 +1,92 @@
 -
-  name: 'Home'
+  name: 'Intro'
+  navigation: 'Intro'
   uriPattern: ''
   defaults:
     '@action':      'index'
-    '@package':     'AdminDemo'
     '@controller':  'Standard'
+    '@package':     'Famelo.Demo.Admin'
+
+-
+  name: 'Models'
+  navigation: 'Models'
+  uriPattern: 'model'
+  defaults:
+    '@action':      'index'
+    '@controller':  'Standard'
+    '@package':     'Famelo.Demo.Admin'
+
+-
+  name: 'Address'
+  navigation: 'Address'
+  uriPattern: 'model/address'
+  defaults:
+    '@action':      'index'
+    '@controller':  'Expose'
+    '@package':     'Famelo.Demo.Admin'
+    'arguments':
+      'sources': 'addresses'
+      --exposeRuntime:
+          '@controller': "List"
+          'type': 'Famelo\Demo\Admin\Domain\Model\Address'
+  appendExceedingArguments: true
+
+-
+  name: 'Configurations'
+  navigation: 'Configurations'
+  uriPattern: 'model/configurations'
+  appendExceedingArguments: true
+  defaults:
+    '@action':      'index'
+    '@controller':  'Expose'
+    '@package':     'Famelo.Demo.Admin'
+    'arguments':
+      'sources': 'configuration'
+      --exposeRuntime:
+          '@controller': "List"
+          'type': 'Famelo\Demo\Admin\Domain\Model\Configurations'
+
+-
+  name: 'Inline'
+  navigation: 'Inline'
+  uriPattern: 'model/inline'
+  appendExceedingArguments: true
+  defaults:
+    '@action':      'index'
+    '@controller':  'Expose'
+    '@package':     'Famelo.Demo.Admin'
+    'arguments':
+      'sources': 'inline'
+      --exposeRuntime:
+          '@controller': "List"
+          'type': 'Famelo\Demo\Admin\Domain\Model\Inline'
+
+-
+  name: 'Widgets'
+  navigation: 'Widgets'
+  uriPattern: 'model/widgets'
+  appendExceedingArguments: true
+  defaults:
+    '@action':      'index'
+    '@controller':  'Expose'
+    '@package':     'Famelo.Demo.Admin'
+    'arguments':
+      'sources': 'widgets'
+      --exposeRuntime:
+          '@controller': "List"
+          'type': 'Famelo\Demo\Admin\Domain\Model\Widgets'
+
+-
+  name: 'Validation'
+  navigation: 'Validation'
+  uriPattern: 'model/validation'
+  appendExceedingArguments: true
+  defaults:
+    '@action':      'index'
+    '@controller':  'Expose'
+    '@package':     'Famelo.Demo.Admin'
+    'arguments':
+      'sources': 'validation'
+      --exposeRuntime:
+          '@controller': "List"
+          'type': 'Famelo\Demo\Admin\Domain\Model\Validation'

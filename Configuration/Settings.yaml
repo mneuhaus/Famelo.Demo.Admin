@@ -1,117 +1,30 @@
 Famelo:
-  Scaff:
-    modules:
-      intro:
-        label: 'Intro'
-        arguments:
-          @controller: 'Standard'
-          @package: 'Famelo.Demo.Admin'
+  Demo:
+    Admin:
+      Sources:
+        addresses:
+          - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Address.php
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Address.ts2
+          - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
 
-      helper:
-        label: 'Helper'
-        submodules:
-          clearDatabase:
-            label: 'Clear Database'
-            arguments:
-              @action: 'clearDatabase'
-              @controller: 'Helper'
-              @package: 'Famelo.Demo.Admin'
+        configuration:
+          - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Configurations.php
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Configurations.ts2
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/List/CustomTable.ts2
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/Elements/List/CustomTable.html
+          - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
 
-      models:
-        label: 'Models'
-        submodules:
-          addresses:
-            label: 'Adresses'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Address.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Address.ts2
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
-            arguments:
-              @controller: 'Expose'
-              --exposeRuntime:
-                  @controller: "SameTypeList"
-                  type: 'Famelo\Demo\Admin\Domain\Model\Address'
+        inline:
+          - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Inline.php
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Inline.ts2
+          - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
 
-          configuration:
-            label: 'Configuration'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Configurations.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Configurations.ts2
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/List/CustomTable.ts2
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/Elements/List/CustomTable.html
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
-            arguments:
-              @controller: 'Expose'
-              --exposeRuntime:
-                  @controller: "SameTypeList"
-                  type: 'Famelo\Demo\Admin\Domain\Model\Configurations'
+        widgets:
+          - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
+          - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
 
-          inline:
-            label: 'Inline'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Inline.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Inline.ts2
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
-            arguments:
-              @action: 'index'
-              @controller: 'Expose'
-              --exposeRuntime:
-                @controller: "SameTypeList"
-                type: 'Famelo\Demo\Admin\Domain\Model\Inline'
-
-          widgets:
-            label: 'Widgets'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
-            arguments:
-              @action: 'index'
-              @controller: 'Expose'
-              --exposeRuntime:
-                @controller: "SameTypeList"
-                type: 'Famelo\Demo\Admin\Domain\Model\Widgets'
-
-          validation:
-            label: 'Validation'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Validation.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Validation.ts2
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
-            arguments:
-              @action: 'index'
-              @controller: 'Expose'
-              --exposeRuntime:
-                @action: 'index'
-                @controller: "SameTypeList"
-                @package: "TYPO3.Expose"
-                type: 'Famelo\Demo\Admin\Domain\Model\Validation'
-
-      viewhelpers:
-        label: 'ViewHelpers'
-        submodules:
-          create-form:
-            label: 'Create Form'
-            arguments:
-              @action: 'index'
-              @controller: 'NewForm'
-              @package: 'Famelo.Demo.Admin'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/Templates/NewForm/Index.html
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Controller/NewFormController.php
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
-
-          edit-form:
-            label: 'Edit Form'
-            arguments:
-              @action: 'index'
-              @controller: 'EditForm'
-              @package: 'Famelo.Demo.Admin'
-            sourceFiles:
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/Templates/EditForm/Index.html
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Controller/EditFormController.php
-              - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Widgets.php
-              - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Widgets.ts2
-              - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml
+        validation:
+          - Packages/Application/Famelo.Demo.Admin/Classes/Famelo/Demo/Admin/Domain/Model/Validation.php
+          - Packages/Application/Famelo.Demo.Admin/Resources/Private/TypoScripts/Schemas/Validation.ts2
+          - Packages/Application/Famelo.Demo.Admin/Configuration/Views.yaml

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {namespace s=Famelo\Scaff\ViewHelpers}
+    {namespace n=Famelo\Navigation\ViewHelpers}
     {namespace d=Famelo\Demo\Admin\ViewHelpers}
     <meta charset="utf-8">
     <title>{settings.title}</title>
@@ -10,12 +10,11 @@
     <meta name="author" content="">
 
     <script src="{f:uri.resource(path: 'js/jquery.1.7.1.min.js', package: 'TYPO3.Expose')}"></script>
-    <link rel="stylesheet" href="{f:uri.resource(path: 'lib/bootstrap/css/bootstrap.css', package: 'Famelo.Scaff')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: 'lib/bootstrap/css/bootstrap-responsive.css', package: 'Famelo.Scaff')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: '2.2/css/bootstrap.css', package: 'TYPO3.Twitter.Bootstrap')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: '2.2/css/bootstrap-responsive.css', package: 'TYPO3.Twitter.Bootstrap')}" />
     <link rel="stylesheet" href="{f:uri.resource(path: 'components/chosen/chosen/chosen.css', package: 'TYPO3.Expose')}" />
     <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Main.css', package: 'TYPO3.Expose')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: 'css/scaff.css', package: 'Famelo.Scaff')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: 'CSS/prettify.css', package: 'Famelo.Demo.Admin')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/prettify.css', package: 'Famelo.Demo.Admin')}" />
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
@@ -35,35 +34,33 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <f:link.action action="index" class="brand">ADU</f:link.action>
+          <f:link.action action="index" class="brand">Distribution.Standalone</f:link.action>
+
           <div class="nav">
             <ul class="nav">
-              <f:for each="{settings.modules}" key="module" as="moduleConfiguration">
-
-                <f:if condition="{moduleConfiguration.submodules}">
-
-                  <f:then>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{moduleConfiguration.label} <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <f:for each="{moduleConfiguration.submodules}" key="submodule" as="submoduleConfiguration">
+              <n:navigation as="items">
+                <f:for each="{items}" as="item">
+                  <f:if condition="{item.children}">
+                    <f:then>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{item.label} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        <f:for each="{item.children}" as="child">
                           <li>
-                            <s:link.module path="{module}.submodules.{submodule}" namespace="content">{submoduleConfiguration.label}</s:link.module>
+                              <n:action actionConfiguration="{child}">{child.label}</n:action>
                           </li>
                         </f:for>
-                      </ul>
-                    </li>
-                  </f:then>
-
-                  <f:else>
-                    <li{f:if(condition: '{currentModule} == {module}', then: ' class="active"')}>
-                      <s:link.module path="{module}" namespace="content">{moduleConfiguration.label}</s:link.module>
-                    </li>
-                  </f:else>
-
-                </f:if>
-
-              </f:for>
+                        </ul>
+                      </li>
+                    </f:then>
+                    <f:else>
+                      <li>
+                          <n:action actionConfiguration="{item}">{item.label}</n:action>
+                      </li>
+                    </f:else>
+                  </f:if>
+                </f:for>
+              </n:navigation>
             </ul>
 
             <a href="#myModal" role="button" class="btn pull-right" data-toggle="modal">Sources</a>
@@ -79,7 +76,7 @@
         <h3 id="myModalLabel">Sources</h3>
       </div>
       <div class="modal-body">
-        <d:source files="{currentModuleConfiguration.sourceFiles}">
+        <d:source>
           <ul class="nav nav-tabs" id="myTab">
             <f:for each="{sources}" as="source" iteration="i">
               <li{f:if(condition: '{i.isFirst}', then: ' class="active"')}>
@@ -111,8 +108,8 @@
 
     <f:render section="content" />
 
-    <script src="{f:uri.resource(path: 'lib/bootstrap/js/bootstrap.min.js', package: 'Famelo.Scaff')}"></script>
-    <script src="{f:uri.resource(path: 'JavaScript/prettify.js', package: 'Famelo.Demo.Admin')}"></script>
+    <script src="{f:uri.resource(path: '2.2/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+    <script src="{f:uri.resource(path: 'Scripts/prettify.js', package: 'Famelo.Demo.Admin')}"></script>
     <script src="{f:uri.resource(path: 'Scripts/Main.min.js', package: 'TYPO3.Expose')}"></script>
 
     <script type="text/javascript">
