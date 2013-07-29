@@ -8,10 +8,10 @@ prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Address) < prototyp
 
 prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Address).prototype(TYPO3.Expose:RecordList) >>
 
-#prototype(TYPO3.Expose:RecordList.Table).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Address) < prototype(TYPO3.Expose:Schema) {
-#	properties {
-#		zip {
-#			ignore = true
-#		}
-#	}
-#}
+prototype(TYPO3.Expose:RecordList.Table).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Address) {
+	properties {
+		zip {
+			ignore = true
+		}
+	}
+}

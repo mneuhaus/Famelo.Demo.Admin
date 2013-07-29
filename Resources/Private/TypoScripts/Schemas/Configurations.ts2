@@ -22,13 +22,13 @@ prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations) < p
 	}
 }
 
-#prototype(TYPO3.Expose:RecordList).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations) < prototype(TYPO3.Expose:Schema) {
-#	properties {
-#		ignoreListView {
-#			ignore = true
-#		}
-#	}
-#}
+prototype(TYPO3.Expose:RecordList).prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations) {
+	properties {
+		ignoreListView {
+			ignore = true
+		}
+	}
+}
 
 
 prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Configurations).prototype(TYPO3.Expose:RecordList) {
