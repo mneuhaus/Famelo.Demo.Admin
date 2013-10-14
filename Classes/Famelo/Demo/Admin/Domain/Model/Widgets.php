@@ -125,6 +125,42 @@ class Widgets{
 	 */
 	#protected $markdown;
 
+	/**
+	 * @var \Famelo\Demo\Admin\Domain\Model\Address
+	 * @ORM\ManyToOne(inversedBy="inlineStacked", cascade={"all"})
+	 */
+	protected $addressStacked;
+
+	/**
+	 * @var \Famelo\Demo\Admin\Domain\Model\Address
+	 * @ORM\ManyToOne(inversedBy="inlineTabular", cascade={"all"})
+	 */
+	protected $addressTabular;
+
+	/**
+	 * @var \Famelo\Demo\Admin\Domain\Model\Address
+	 * @ORM\ManyToOne(inversedBy="inlineSeamless", cascade={"all"})
+	 */
+	protected $addressSeamless;
+
+	/**
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
+	 * @ORM\ManyToMany(inversedBy="inlinesStacked", cascade={"all"})
+	 */
+	protected $addressesStacked;
+
+	/**
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
+	 * @ORM\ManyToMany(inversedBy="inlinesTabular", cascade={"all"})
+	 */
+	protected $addressesTabular;
+
+	/**
+	 * @var \Doctrine\Common\Collections\Collection<\Famelo\Demo\Admin\Domain\Model\Address>
+	 * @ORM\ManyToMany(inversedBy="inlinesSeamless", cascade={"all"})
+	 */
+	protected $addressesSeamless;
+
 	public function __construct(){
 		$this->date = new \DateTime();
 		$this->time = new \DateTime();
@@ -273,6 +309,90 @@ class Widgets{
 	 */
 	public function getAddressesChosen() {
 		return $this->addressesChosen;
+	}
+
+	/**
+	 * @param  $addressStacked
+	 */
+	public function setAddressStacked($addressStacked) {
+		$this->addressStacked = $addressStacked;
+	}
+
+	/**
+	 * @return
+	 */
+	public function getAddressStacked() {
+		return $this->addressStacked;
+	}
+
+	/**
+	 * @param  $addressTabular
+	 */
+	public function setAddressTabular($addressTabular) {
+		$this->addressTabular = $addressTabular;
+	}
+
+	/**
+	 * @return
+	 */
+	public function getAddressTabular() {
+		return $this->addressTabular;
+	}
+
+	/**
+	 * @param  $addressesStacked
+	 */
+	public function setAddressesStacked($addressesStacked) {
+		$this->addressesStacked = $addressesStacked;
+	}
+
+	/**
+	 * @return
+	 */
+	public function getAddressesStacked() {
+		return $this->addressesStacked;
+	}
+
+	/**
+	 * @param  $addressesTabular
+	 */
+	public function setAddressesTabular($addressesTabular) {
+		$this->addressesTabular = $addressesTabular;
+	}
+
+	/**
+	 * @return
+	 */
+	public function getAddressesTabular() {
+		return $this->addressesTabular;
+	}
+
+	/**
+	 * @param object $addressSeamless
+	 */
+	public function setAddressSeamless($addressSeamless) {
+		$this->addressSeamless = $addressSeamless;
+	}
+
+	/**
+	 * @return object
+	 */
+	public function getAddressSeamless() {
+		return $this->addressSeamless;
+	}
+
+	/**
+	 * @param array $addressesSeamless
+	 */
+	public function setAddressesSeamless($addressesSeamless) {
+		$this->addressesSeamless = $addressesSeamless;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getAddressesSeamless() {
+		return $this->addressesSeamless;
 	}
 }
 

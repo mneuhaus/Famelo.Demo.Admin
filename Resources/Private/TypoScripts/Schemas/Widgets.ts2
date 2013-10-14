@@ -1,7 +1,51 @@
 prototype(TYPO3.Expose:Schema:Famelo.Demo.Admin.Domain.Model.Widgets) < prototype(TYPO3.Expose:Schema) {
+	sections {
+		simple {
+			properties = 'string, date, time, datetime, address, addresses'
+		}
+		singleInline {
+			#name = 'Single Inline Relations'
+			properties = 'addressStacked, addressTabular, addressSeamless'
+		}
+		multipleInline {
+			#name = 'Multiple Inline Relations'
+			properties = 'addressesStacked, addressesTabular, addressesSeamless'
+		}
+	}
 	properties {
 		zip {
 #			ignore = true
+		}
+		addressStacked {
+			inline {
+				element = 'TYPO3.Expose:InlineStacked'
+			}
+		}
+		addressTabular {
+			inline {
+				element = 'TYPO3.Expose:InlineTabular'
+			}
+		}
+		addressSeamless {
+			inline {
+				element = 'TYPO3.Expose:InlineSeamless'
+			}
+		}
+
+		addressesStacked {
+			inline {
+				element = 'TYPO3.Expose:InlineStacked'
+			}
+		}
+		addressesTabular {
+			inline {
+				element = 'TYPO3.Expose:InlineTabular'
+			}
+		}
+		addressesSeamless {
+			inline {
+				element = 'TYPO3.Expose:InlineSeamless'
+			}
 		}
 	}
 }

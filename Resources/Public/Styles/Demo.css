@@ -1,0 +1,12 @@
+.content {
+	margin-top: 20px;
+}
+
+#sources .modal-dialog{
+	width: 900px;
+}
+
+#sources .modal-body{
+	max-height: 600px;
+	overflow: auto;
+}

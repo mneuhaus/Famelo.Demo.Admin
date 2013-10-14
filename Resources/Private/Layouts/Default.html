@@ -1,126 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {namespace n=Famelo\Navigation\ViewHelpers}
-    {namespace d=Famelo\Demo\Admin\ViewHelpers}
-    <meta charset="utf-8">
-    <title>{settings.title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<head>
+		{namespace n=Famelo\Navigation\ViewHelpers}
+		{namespace d=Famelo\Demo\Admin\ViewHelpers}
+		<meta charset="utf-8">
+		<title>{settings.title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-    <script src="{f:uri.resource(path: 'js/jquery.1.7.1.min.js', package: 'TYPO3.Expose')}"></script>
-    <link rel="stylesheet" href="{f:uri.resource(path: '2.2/css/bootstrap.css', package: 'TYPO3.Twitter.Bootstrap')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: '2.2/css/bootstrap-responsive.css', package: 'TYPO3.Twitter.Bootstrap')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: 'components/chosen/chosen/chosen.css', package: 'TYPO3.Expose')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Main.css', package: 'TYPO3.Expose')}" />
-    <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/prettify.css', package: 'Famelo.Demo.Admin')}" />
+		<script src="{f:uri.resource(path: 'js/jquery.1.7.1.min.js', package: 'TYPO3.Expose')}"></script>
+		<link rel="stylesheet" href="{f:uri.resource(path: '3/css/bootstrap.css', package: 'TYPO3.Twitter.Bootstrap')}" />
+		<link rel="stylesheet" href="{f:uri.resource(path: '3/css/bootstrap-theme.css', package: 'TYPO3.Twitter.Bootstrap')}" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'components/chosen/chosen/chosen.css', package: 'TYPO3.Expose')}" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Main.css', package: 'TYPO3.Expose')}" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/prettify.css', package: 'Famelo.Demo.Admin')}" />
+		<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/Demo.css', package: 'Famelo.Demo.Admin')}" />
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <style type="text/css">
-      .content {
-        margin-top: 70px;
-      }
-    </style>
-  </head>
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+	</head>
 
-  <body>
+	<body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <f:link.action action="index" class="brand">Distribution.Standalone</f:link.action>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<f:link.action action="index" class="navbar-brand">Distribution.Standalone</f:link.action>
+				</div>
 
-          <div class="nav">
-            <ul class="nav">
-              <n:navigation as="items">
-                <f:for each="{items}" as="item">
-                  <f:if condition="{item.children}">
-                    <f:then>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{item.label} <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        <f:for each="{item.children}" as="child">
-                          <li>
-                              <n:action actionConfiguration="{child}">{child.label}</n:action>
-                          </li>
-                        </f:for>
-                        </ul>
-                      </li>
-                    </f:then>
-                    <f:else>
-                      <li>
-                          <n:action actionConfiguration="{item}">{item.label}</n:action>
-                      </li>
-                    </f:else>
-                  </f:if>
-                </f:for>
-              </n:navigation>
-            </ul>
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<n:navigation as="items">
+								<f:for each="{items}" as="item">
+									<f:if condition="{item.children}">
+										<f:then>
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													{item.label} <b class="caret"></b>
+												</a>
+												<ul class="dropdown-menu">
+													<f:for each="{item.children}" as="child">
+														<li>
+																<n:action actionConfiguration="{child}">{child.label}</n:action>
+														</li>
+													</f:for>
+												</ul>
+											</li>
+										</f:then>
+										<f:else>
+											<li>
+													<n:action actionConfiguration="{item}">{item.label}</n:action>
+											</li>
+										</f:else>
+									</f:if>
+								</f:for>
+							</n:navigation>
+					</ul>
 
-            <a href="#myModal" role="button" class="btn pull-right" data-toggle="modal">Sources</a>
+					<a href="#sources" role="button" class="btn btn-default pull-right" data-toggle="modal">Sources</a>
+				</div>
+			</div>
+		</nav>
 
-          </div>
-        </div>
-      </div>
-    </div>
+		<div id="sources" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sourceLabel" aria-hidden="true">
+			<div class="modal-dialog">
+	      		<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h3 id="sourceLabel">Sources</h3>
+					</div>
+					<div class="modal-body">
+						<d:source>
+							<ul class="nav nav-tabs">
+								<f:for each="{sources}" as="source" iteration="i">
+									<li{f:if(condition: '{i.isFirst}', then: ' class="active"')}>
+										<a href="#tab{i.index}" data-toggle="tab">{source.filename}</a>
+									</li>
+								</f:for>
+							</ul>
 
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 900px; margin-left:-450px;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Sources</h3>
-      </div>
-      <div class="modal-body">
-        <d:source>
-          <ul class="nav nav-tabs" id="myTab">
-            <f:for each="{sources}" as="source" iteration="i">
-              <li{f:if(condition: '{i.isFirst}', then: ' class="active"')}>
-                <a href="#tab{i.index}">{source.filename}</a>
-              </li>
-            </f:for>
-          </ul>
+							<div class="tab-content">
+								<f:for each="{sources}" as="source" iteration="i">
+									<div class="tab-pane{f:if(condition: '{i.isFirst}', then: ' active')}" id="tab{i.index}">
+										<b>{source.filepath}</b>
+										<pre class="prettyprint linenums">{source.code}</pre>
+									</div>
+								</f:for>
+							</div>
+						</d:source>
+					</div>
+				</div>
+			</div>
+		</div>
 
-          <div class="tab-content">
-            <f:for each="{sources}" as="source" iteration="i">
-              <div class="tab-pane{f:if(condition: '{i.isFirst}', then: ' active')}" id="tab{i.index}">
-                <b>{source.filepath}</b>
-                <pre class="prettyprint linenums">{source.code}</pre>
-              </div>
-            </f:for>
-          </div>
-        </d:source>
+		<div class="content">
+			<f:render section="content" />
+		</div>
 
-        <script>
-          $(function () {
-            $('#myTab a').click(function (e) {
-              e.preventDefault();
-              $(this).tab('show');
-            })
-          })
-        </script>
-      </div>
-    </div>
+		<script src="{f:uri.resource(path: '3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+		<script src="{f:uri.resource(path: 'Scripts/prettify.js', package: 'Famelo.Demo.Admin')}"></script>
+		<script src="{f:uri.resource(path: 'Scripts/Main.min.js', package: 'TYPO3.Expose')}"></script>
 
-    <div class="content">
-      <f:render section="content" />
-    </div>
-
-    <script src="{f:uri.resource(path: '2.2/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
-    <script src="{f:uri.resource(path: 'Scripts/prettify.js', package: 'Famelo.Demo.Admin')}"></script>
-    <script src="{f:uri.resource(path: 'Scripts/Main.min.js', package: 'TYPO3.Expose')}"></script>
-
-    <script type="text/javascript">
-      window.prettyPrint && prettyPrint()
-    </script>
-  </body>
+		<script type="text/javascript">
+			window.prettyPrint && prettyPrint()
+		</script>
+	</body>
 </html>
