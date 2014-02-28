@@ -26,7 +26,7 @@
     '@package':     'Famelo.Demo.Admin'
     'arguments':
       'sources': 'addresses'
-      --exposeRuntime:
+      --expose:
           '@controller': "List"
           'type': 'Famelo\Demo\Admin\Domain\Model\Address'
   appendExceedingArguments: true
@@ -42,7 +42,7 @@
     '@package':     'Famelo.Demo.Admin'
     'arguments':
       'sources': 'configuration'
-      --exposeRuntime:
+      --expose:
           '@controller': "List"
           'type': 'Famelo\Demo\Admin\Domain\Model\Configurations'
 
@@ -57,7 +57,7 @@
     '@package':     'Famelo.Demo.Admin'
     'arguments':
       'sources': 'inline'
-      --exposeRuntime:
+      --expose:
           '@controller': "List"
           'type': 'Famelo\Demo\Admin\Domain\Model\Inline'
 
@@ -72,7 +72,7 @@
     '@package':     'Famelo.Demo.Admin'
     'arguments':
       'sources': 'widgets'
-      --exposeRuntime:
+      --expose:
           '@controller': "List"
           'type': 'Famelo\Demo\Admin\Domain\Model\Widgets'
 
@@ -87,6 +87,6 @@
     '@package':     'Famelo.Demo.Admin'
     'arguments':
       'sources': 'validation'
-      --exposeRuntime:
+      --expose:
           '@controller': "List"
           'type': 'Famelo\Demo\Admin\Domain\Model\Validation'

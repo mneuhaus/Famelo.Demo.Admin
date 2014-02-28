@@ -1,11 +1,6 @@
 -
-  requestFilter: 'isPackage("TYPO3.Expose")'
+  requestFilter: 'isDefaultView("TYPO3\Expose\View\TypoScriptView")'
   options:
     typoScriptPathPatterns:
-      - 'resource://TYPO3.Expose/Private/TypoScripts/'
+      - 'resource://TYPO3.Expose/Private/TypoScript/'
       - 'resource://Famelo.Demo.Admin/Private/TypoScripts/'
-
--
-  requestFilter: 'isPackage("TYPO3.Expose") && isController("List")'
-  options:
-    typoScriptPath: '<TYPO3.Expose:RecordList>'
